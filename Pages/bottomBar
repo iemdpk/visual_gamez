@@ -1,0 +1,32 @@
+import React,{useState,useRef} from 'react';
+import { View, Text,TouchableOpacity } from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Header,Icon } from 'react-native-elements';
+
+export default function NavBarSheet() {
+  
+  const navigation = useNavigation();
+  return (
+
+  <View style={{height:60,flexDirection:'row',width:'100%',backgroundColor:'#2d3436',justifyContent:'space-around',alignItems:'center'}}>
+    <TouchableOpacity onPress={() =>{ navigation.navigate("Home"); }}>
+  <Icon name="home" size={20} color={"white"} />
+  <Text style={{fontFamily:'Rubik-Medium',color:'white'}}>Classes</Text>
+  </TouchableOpacity>
+  <TouchableOpacity onPress={()=>{ navigation.navigate('AppliedPage') }}>
+  <Icon name="save-alt" size={20} color={"white"} />
+  <Text style={{fontFamily:'Rubik-Medium',color:'white'}}>Applied</Text>
+  </TouchableOpacity>
+  <TouchableOpacity onPress={()=>{ navigation.navigate('EarnPage')}}>
+  <Icon name="account-box" size={20}  color={"white"}/>
+  <Text style={{fontFamily:'Rubik-Medium',color:'white'}}>Earn</Text>
+  </TouchableOpacity>
+  <TouchableOpacity onPress={()=>{ navigation.navigate('ProfilePage'); }}>
+  <Icon name="person" size={20}  color={"white"}/>
+  <Text style={{fontFamily:'Rubik-Medium',color:'white'}}>Profile</Text>
+  </TouchableOpacity>
+</View>
+
+  );
+}
